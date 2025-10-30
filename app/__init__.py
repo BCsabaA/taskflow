@@ -3,9 +3,11 @@ import os
 from datetime import datetime
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 from dotenv import load_dotenv
 
 db = SQLAlchemy()
+login_manager = LoginManager()
 
 def create_app() -> Flask:
     load_dotenv()
@@ -25,8 +27,15 @@ def create_app() -> Flask:
 
     db.init_app(app)
 
+    # Flask-Login
+    login_manager.init_app(app)
+    login_manager.login_view = "auth.login"   # nem belépett user ide lesz átirányítva
+
+
     from .routes import bp as main_bp
+    from .auth import bp as auth_bp
     app.register_blueprint(main_bp)
+    app.register_blueprint(auth_bp, url_prefix="/auth")
 
     with app.app_context():
         from .models import User
