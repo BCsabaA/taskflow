@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Rendszerinformáció · Taskflow{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col-12 col-lg-8">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title mb-3">Rendszerinformáció</h5>
+        <div class="table-responsive">
+          <table class="table table-sm align-middle mb-0">
+            <tbody>
+              <tr><th>Python</th><td>{{ info.python }}</td></tr>
+              <tr><th>Flask</th><td>{{ info.flask }}</td></tr>
+              <tr><th>SQLite</th><td>{{ info.sqlite }}</td></tr>
+              <tr><th>Adatbázis fájl</th><td><code>{{ info.db_path }}</code></td></tr>
+              <tr><th>Debug mód</th><td>{{ info.debug }}</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -2,6 +2,27 @@
 __pycache__/
 *.py[codz]
 *$py.class
+*.pyc
+
+# venv
+.venv/
+# bytecode
+__pycache__/
+*.pyc
+# IDE
+.vscode/
+.idea/
+# sqlite/db
+instance/*
+!instance/.gitkeep
+# env
+.env
+# pytest
+.pytest_cache/
+# reports
+htmlcov/
+coverage.xml
+
 
 # C extensions
 *.so
